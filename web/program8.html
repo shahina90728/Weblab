@@ -1,0 +1,154 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+         .user {
+             display: grid;        
+             grid-template-columns: auto auto;
+             grid-row-gap: 30px;
+         } 
+    </style>
+</head>
+<body>
+
+   <center><h2>REGISTRATION FORM</h2></center>
+    <form id="Registration" onsubmit="return validateForm()">
+        <fieldset>
+            <legend>User Information</legend>
+
+          <div class="user">
+            <label for="Name">Name:</label>
+            <div>
+              <select id="Title" name="Title">
+                <option value="" disabled selected>Mr/Miss</option>
+                <option value="Mr">Mr</option>
+                <option value="Miss">Miss</option>
+              </select>
+              <input type="text" id="Name" name="Name" ><br>
+            </div>
+
+            <div>
+              <label for="PhoneNo">Phone no:</label><br>
+              <input type="text" id="PhoneNo" name="PhoneNo" >
+            </div>
+
+            <div>
+              <label for="email">Email:</label><br>
+              <input type="text" id="email" name="email" >
+            </div>
+             <div>
+              <label for="password">Password:</label><br>
+              <input type="password" id="password" name="password" >
+            </div>
+
+            <div>
+              <label for="confirmPassword">Confirm Password:</label><br>
+              <input type="password" id="confirmPassword" name="confirmPassword" >
+            </div>
+          </div>
+        </fieldset>
+        <br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3"></textarea><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" >
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+        <br><br>
+
+        <label>Languages Known:</label>
+        <input type="checkbox" id="english" name="languages" value="English">
+        <label for="english">English</label>
+        <input type="checkbox" id="hindi" name="languages" value="Hindi">
+        <label for="hindi">Hindi</label>
+        <input type="checkbox" id="tamil" name="languages" value="Tamil">
+        <label for="tamil">Tamil</label>
+        <input type="checkbox" id="other_lang" name="languages" value="Other">
+        <label for="other_lang">Other</label>
+        <br><br>
+
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" >
+            <option value="" disabled selected>-- Select a course --</option>
+            <option value="bca">BCA</option>
+            <option value="bsc">B.Sc</option>
+            <option value="bcom">B.Com</option>
+            <option value="ba">B.A</option>
+            <option value="mca">MCA</option>
+            <option value="msc">M.Sc</option>
+        </select><br><br>
+
+        <center>
+          <input type="reset" value="Reset">
+          <input type="submit" value="Submit">
+        </center>
+    </form>
+
+    <script>
+     function validateForm() {
+
+        let name = document.getElementById("Name").value.trim();
+        let namePattern = /^[A-Za-z\s]+$/;
+        if (name === "" || !namePattern.test(name)) {
+            alert("Please enter a valid name (letters only).");
+            return false;
+        }
+
+
+        let phone = document.getElementById("PhoneNo").value.trim();
+        let phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            alert("Please enter a valid 10-digit phone number.");
+            return false;
+        }
+
+
+        let email = document.getElementById("email").value.trim();
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+
+        let genderSelected = document.querySelector('input[name="gender"]:checked');
+        if (!genderSelected) {
+            alert("Please select your gender.");
+            return false;
+        }
+
+
+        let languageSelected = document.querySelectorAll('input[name="languages"]:checked');
+        if (languageSelected.length === 0) {
+            alert("Please select at least one language.");
+            return false;
+        }
+
+
+        let course = document.getElementById("course").value;
+        if (course === "") {
+            alert("Please select a course.");
+            return false;
+        }
+       let password = document.getElementById("password").value;
+       let confirmPassword = document.getElementById("confirmPassword").value;
+
+       if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/.test(password))
+       return alert("Password must contain at least one uppercase, one lowercase, one number, one special character, and be at least 6 characters long.");
+
+      if (password !== confirmPassword)
+      return alert("Passwords do not match. Please re-enter.");
+
+
+        alert("Form submitted successfully!");
+        return true;
+     }
+    </script>
+</body>
+</html>
+

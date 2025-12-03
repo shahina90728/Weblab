@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Basic HTML with JavaScript</title>
+    <style>
+    .page{
+    display: flex;
+    justify-content: space-between;
+    }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Objects Demo</h1>
+<div class="page">
+   <div>
+    <h2>Math Objects</h2>
+    <script>
+        document.writeln( 
+        "<p><b>Math.E:</b> " + Math.E + "</p>" +
+        "<p><b>Math.PI:</b> " + Math.PI + "</p>" +
+        "<p><b>Math.SQRT2:</b> " + Math.SQRT2 + "</p>" +
+        "<p><b>Math.SQRT1_2:</b> " + Math.SQRT1_2 + "</p>" +
+        "<p><b>Math.LN2:</b> " + Math.LN2 + "</p>" +
+        "<p><b>Math.LN10:</b> " + Math.LN10 + "</p>" +
+        "<p><b>Math.LOG2E:</b> " + Math.LOG2E + "</p>" +
+        "<p><b>Math.LOG10E:</b> " + Math.LOG10E + "</p>");
+    </script>
+   </div>
+<div>
+
+</div>
+
+   <div>
+    <h2>String Objects</h2>
+    <script>
+        var str = "Hello JavaScript!";
+
+        document.writeln(
+        "<p><b>Original String:</b> " + str + "</p>" +
+        "<p><b>String Length:</b> " + str.length + "</p>" +
+        "<p><b>Uppercase:</b> " + str.toUpperCase() + "</p>" +
+        "<p><b>Lowercase:</b> " + str.toLowerCase() + "</p>" +
+        "<p><b>Character at index 0:</b> " + str.charAt(0) + "</p>" +
+        "<p><b>Index of 'Script':</b> " + str.indexOf("Script") + "</p>" +
+        "<p><b>Substring (0,5):</b> " + str.substring(0,5) + "</p>" +
+        "<p><b>Replace 'JavaScript' with 'World':</b> " + str.replace("JavaScript", "World") + "</p>" +
+        "<p><b>Concatenation:</b> " + str.concat(" is fun!") + "</p>" +
+        "<p><b>Slice (6,16):</b> " + str.slice(6,16) + "</p>");
+    </script>
+   </div>
+</div>
+</body>
+</html>
+

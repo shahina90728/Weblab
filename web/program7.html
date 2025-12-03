@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>javaScript event handling</title>
+<style>
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+</style>
+</head>
+<body>
+<button onclick="bgChange()" >Click me</button>
+<h1>Change background color</h1>
+
+</body>
+<script>
+function bgChange()
+{
+var r=Math.floor(Math.random()*256);
+var g=Math.floor(Math.random()*256);
+var b=Math.floor(Math.random()*256);
+document.body.style.backgroundColor="rgb("+r+","+g+","+b+")";
+}
+</script>
+
+</html>
