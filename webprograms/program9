@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Program9</title>
+    <style>
+    body{
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        font-family: Arial;
+    }
+    img{
+        width:300px;
+        height:500px;
+        object-fit:cover;
+        border-radius:50%;
+        border: 4px solid green;
+        box-shadow: 10px 8px 20px 10px rgba(0,0,.5,0.5);
+        padding:5px;
+    }
+    p{
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+<img id="img1" src="/home/mca/Pictures/car1.jpeg">
+<p id="imgText">Car Model 1</p>
+
+<script>
+    let images = [
+        "/home/mca/Pictures/car1.jpeg",
+        "/home/mca/Pictures/car4.jpeg",
+        "/home/mca/Pictures/car3.jpg"
+    ];
+
+    let texts = [
+        "Car Model 1",
+        "BMW ",
+        " 3"
+    ];
+    let colors = [
+        "green",
+        "blue",
+        "red"
+    ];
+
+    let index = 0; 
+    let img = document.getElementById("img1");
+    let caption = document.getElementById("imgText");
+
+    img.addEventListener("mouseover", function () {
+        index = (index + 1) % images.length; 
+        img.src = images[index];
+        caption.textContent = texts[index];
+        caption.style.color = colors[index]; 
+    });
+</script>
+
+</body>
+</html>
+
